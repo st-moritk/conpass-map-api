@@ -15,9 +15,10 @@ type ChatMessage = { role: "user" | "system" | "assistant"; content: string };
 export async function POST(req: NextRequest) {
   const { messages } = (await req.json()) as { messages: ChatMessage[] };
 
-  const stream = await client.responses.stream({
+  const stream = await client.chat.completions.create({
     model: "gpt-4o-mini",
-    input: messages.map((m) => ({ role: m.role, content: m.content })),
+    messages: messages.map((m) => ({ role: m.role, content: m.content })),
+    stream: true,
   });
 
   // ここがポイント：SDKのヘルパーでWeb ReadableStream化
