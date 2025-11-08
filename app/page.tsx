@@ -83,20 +83,16 @@ export default function Home() {
           <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
             <div className="flex items-center justify-between">
               <h2 className="text-2xl font-semibold text-white">マッププレビュー</h2>
-              <span className="text-xs uppercase tracking-[0.4em] text-white/40">Realtime</span>
+              <span className="text-xs uppercase tracking-[0.4em] text-white/40">Google Maps</span>
             </div>
-            <div className="mt-6 h-80 rounded-2xl border border-white/5 bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.4),_rgba(0,0,0,0.7))] p-6">
-              <div className="h-full w-full rounded-2xl border border-white/10 bg-black/30 p-4">
-                <div className="grid h-full grid-cols-12 grid-rows-6 gap-2">
-                  {[...Array(8)].map((_, index) => (
-                    <div
-                      key={index}
-                      className="rounded-lg border border-blue-300/20 bg-blue-400/20 shadow-lg shadow-blue-500/20"
-                      style={{ gridColumn: `span ${index % 3 === 0 ? 4 : 3}` }}
-                    />
-                  ))}
-                </div>
-              </div>
+            <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 shadow-lg shadow-blue-500/10">
+              <iframe
+                title="Connpassイベント密度プレビュー"
+                className="h-[420px] w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.901214012777!2d139.69932501218516!3d35.658033131648726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ca980c6479d%3A0x2a4f690baa3c9c9d!2z44CSMTUwLTAwMzEg5p2x5Lqs6YO95riL6LC35Yy65Lit5aSu5Yy655m95bSO5Y-w77yR5LiB55uu77yS4oiS77yTIOaWsOWkp-iwoueVpeWtkO-8kuOCq-ODs-ODiOODq-S4gA!5e0!3m2!1sja!2sjp!4v1723584000000!5m2!1sja!2sjp"
+              ></iframe>
             </div>
           </div>
         </section>
