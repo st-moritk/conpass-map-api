@@ -1,48 +1,3 @@
-const featureHighlights = [
-  {
-    title: "自然言語で探す",
-    description: "「渋谷で夜開催のAIミートアップを教えて」のような質問にそのまま答えます。",
-    badge: "NL Search",
-  },
-  {
-    title: "マップで俯瞰",
-    description: "開催エリアを色で可視化。距離感や周辺イベントがひと目でわかります。",
-    badge: "Geo Lens",
-  },
-  {
-    title: "チームで共有",
-    description: "気になるイベントをボードにまとめ、メモ付きでメンバーに共有できます。",
-    badge: "Team Sync",
-  },
-];
-
-const sampleEvents = [
-  {
-    title: "Generative AI Meetup Tokyo #12",
-    date: "8月24日 (土)",
-    region: "渋谷・リモート併用",
-    tags: ["LLM", "Product", "コミュニティ"],
-  },
-  {
-    title: "関西フロントエンドLT大会",
-    date: "8月28日 (水)",
-    region: "大阪・梅田",
-    tags: ["React", "Design System", "LT"],
-  },
-  {
-    title: "モバイルアプリ地図SDKハンズオン",
-    date: "9月3日 (火)",
-    region: "オンライン",
-    tags: ["iOS", "Android", "Map SDK"],
-  },
-];
-
-const focusAreas = [
-  { title: "東京近郊", summary: "週末開催 42件 / 平日夜 63件", accent: "bg-blue-500/20 text-blue-200" },
-  { title: "リモート可", summary: "AI・デザインを中心に 18件", accent: "bg-emerald-500/20 text-emerald-200" },
-  { title: "ハンズオン", summary: "小規模で実験的な勉強会が増加中", accent: "bg-orange-500/20 text-orange-200" },
-];
-
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#050508] text-white">
@@ -124,69 +79,7 @@ export default function Home() {
           </dl>
         </section>
 
-        <section className="mt-16 grid gap-6 md:grid-cols-3">
-          {featureHighlights.map((feature) => (
-            <article key={feature.title} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white/50">{feature.badge}</span>
-              <h3 className="pt-4 text-xl font-semibold text-white">{feature.title}</h3>
-              <p className="pt-2 text-sm leading-relaxed text-white/70">{feature.description}</p>
-            </article>
-          ))}
-        </section>
-
-        <section className="mt-16 grid gap-6 lg:grid-cols-[1.2fr,0.8fr]">
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-2xl font-semibold text-white">今ピックアップ中のイベント</h2>
-                <p className="text-sm text-white/60">自然言語リクエストを元に、地図に載せたい候補を整理。</p>
-              </div>
-              <button className="rounded-full border border-white/20 px-4 py-2 text-sm text-white/80 transition hover:border-white hover:text-white">
-                すべてを見る
-              </button>
-            </div>
-            <div className="mt-6 divide-y divide-white/10">
-              {sampleEvents.map((event) => (
-                <article key={event.title} className="py-5">
-                  <p className="text-xs uppercase tracking-[0.4em] text-white/40">
-                    {event.date} ・ {event.region}
-                  </p>
-                  <h3 className="pt-2 text-lg font-semibold text-white">{event.title}</h3>
-                  <div className="mt-3 flex flex-wrap gap-2 text-xs">
-                    {event.tags.map((tag) => (
-                      <span key={tag} className="rounded-full border border-white/20 px-3 py-1 text-white/70">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-          <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/15 to-white/[0.02] p-8">
-            <h2 className="text-2xl font-semibold text-white">注目エリアのインサイト</h2>
-            <p className="pt-2 text-sm text-white/60">
-              会話の内容からエリア熱量を抽出。どこで盛り上がっているかを先に知ることができます。
-            </p>
-            <div className="mt-6 space-y-4">
-              {focusAreas.map((area) => (
-                <div key={area.title} className="rounded-2xl border border-white/10 bg-black/40 p-5">
-                  <span className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${area.accent}`}>
-                    {area.title}
-                  </span>
-                  <p className="pt-3 text-base text-white/80">{area.summary}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-8 rounded-2xl border border-white/5 bg-black/30 p-5">
-              <p className="text-xs uppercase tracking-[0.4em] text-white/40">アップデート予定</p>
-              <h3 className="pt-2 text-lg font-semibold text-white">チームボード + 通知</h3>
-              <p className="pt-1 text-sm text-white/60">Slack連携でイベントマップを自動共有。参加期限前のリマインドも送信。</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="mt-16 grid gap-8 lg:grid-cols-[1.05fr,0.95fr]">
+        <section className="mt-16">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
             <div className="flex items-center justify-between">
               <h2 className="text-2xl font-semibold text-white">マッププレビュー</h2>
@@ -204,35 +97,6 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="flex flex-col justify-between gap-6 rounded-3xl border border-white/10 bg-white/5 p-8">
-            <div>
-              <h2 className="text-2xl font-semibold text-white">会話からマップまでの流れ</h2>
-              <ol className="mt-6 space-y-5 text-white/80">
-                <li>
-                  <p className="text-sm font-semibold text-white">1. ニーズを聞く</p>
-                  <p className="text-sm text-white/60">自然文を解析し、求めているカテゴリ・熱量・時間帯を抽出。</p>
-                </li>
-                <li>
-                  <p className="text-sm font-semibold text-white">2. connpass API検索</p>
-                  <p className="text-sm text-white/60">抽出条件を使ってイベントを取得し、信頼度スコア順にランキング。</p>
-                </li>
-                <li>
-                  <p className="text-sm font-semibold text-white">3. マップで整理</p>
-                  <p className="text-sm text-white/60">候補イベントをマップに描画し、距離や移動時間も併記。</p>
-                </li>
-              </ol>
-            </div>
-            <div className="rounded-2xl border border-white/15 bg-white/10 p-6">
-              <p className="text-xs uppercase tracking-[0.4em] text-white/40">参加リクエスト受付中</p>
-              <h3 className="pt-2 text-xl font-semibold text-white">クローズドテストに申し込む</h3>
-              <p className="pt-2 text-sm text-white/70">
-                先行ユーザーにはシナリオ作成支援やチーム用ダッシュボードを優先的に提供します。
-              </p>
-              <button className="mt-4 w-full rounded-2xl bg-white/90 px-6 py-3 text-sm font-semibold text-black transition hover:bg-white">
-                先行アクセスを申し込む
-              </button>
             </div>
           </div>
         </section>
